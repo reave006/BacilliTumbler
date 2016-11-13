@@ -12,7 +12,6 @@ public class Attributes : MonoBehaviour {
  * from unity store
  * 
  *
- * /
+ */ 
 	
-	}
 }
