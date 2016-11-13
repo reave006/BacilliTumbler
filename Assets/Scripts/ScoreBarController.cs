@@ -16,7 +16,7 @@ public class ScoreBarController : MonoBehaviour {
 		shrinking = true;
 		rend = GetComponent<Renderer> ();
 		Scored = false;
-		rend.material.SetColor ("_Color", Color.blue);
+		rend.material.SetColor ("_Color", Color.green);
 	}
 
 
@@ -47,7 +47,7 @@ public class ScoreBarController : MonoBehaviour {
 			} 
 			if (transform.localScale.x > turnYellow)
 			{
-				rend.material.SetColor ("_Color", Color.blue);
+				rend.material.SetColor ("_Color", Color.green);
 			}
 		}
 	}
