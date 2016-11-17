@@ -10,6 +10,8 @@ public class ScoreBarController : MonoBehaviour {
 	public bool Scored;
 	public float ScoreAddPerGlucose;
 	public GameObject User;
+	public AudioSource source;
+	public AudioClip deathNoise;
 
 	// Use this for initialization
 	void Start () {
@@ -35,8 +37,7 @@ public class ScoreBarController : MonoBehaviour {
 			if (transform.localScale.x < .01) {
 				shrinking = false;
 				User.GetComponent<Mover> ().usercontrol = false;
-				//insert kill script
-
+				source.PlayOneShot (deathNoise);
 			}
 
 			if (transform.localScale.x < turnYellow && transform.localScale.x > turnRed) {

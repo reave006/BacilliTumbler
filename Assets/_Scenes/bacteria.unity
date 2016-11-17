@@ -293,7 +293,7 @@ GameObject:
   - 114: {fileID: 23686825}
   m_Layer: 5
   m_Name: Text
-  m_TagString: Untagged
+  m_TagString: counter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -366,7 +366,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88068b29d02767440bf863ffced8a643, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  seconds: 0
   TimerBox: {fileID: 23686823}
+  Counting: 1
 --- !u!1 &29927297
 GameObject:
   m_ObjectHideFlags: 0
@@ -925,6 +927,9 @@ MonoBehaviour:
   scoreBar: {fileID: 1045710265}
   usercontrol: 0
   vanishingSpeed: 10
+  source: {fileID: 71753014}
+  eating: {fileID: 8300000, guid: f7348037a1dda3a439cb5745e02ab32e, type: 3}
+  textbox: {fileID: 23686823}
 --- !u!54 &368554971
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -948,7 +953,7 @@ MeshRenderer:
   m_GameObject: {fileID: 368554969}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -2493,12 +2498,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0dbaca89d639f340a15c9f918e3852e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  decaySpeed: 1
+  decaySpeed: 2
   turnYellow: 15
   turnRed: 5
   Scored: 0
   ScoreAddPerGlucose: 3
   User: {fileID: 368554969}
+  source: {fileID: 71753014}
+  deathNoise: {fileID: 8300000, guid: 7d0bb59c290d7e645b89d0d795f26567, type: 3}
 --- !u!108 &1045710271
 Light:
   m_ObjectHideFlags: 0
@@ -3410,7 +3417,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 407039ad05a985c458217b0ece5e9b34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfObjects: 2
+  maxNumberOfObjects: 5
+  numberOfObjects: 0
   radius: 10
   Substance: {fileID: 1000011621441204, guid: 174aaf6556cc50442be785369686574f, type: 2}
 --- !u!1 &1545509008

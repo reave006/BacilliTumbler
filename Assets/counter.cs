@@ -7,6 +7,7 @@ public class counter : MonoBehaviour {
 	public int seconds;
 	private float Timer=0.0f;
 	public Text TimerBox;
+	public bool Counting = true;
 
 	// Use this for initialization
 	void Start () {
@@ -15,8 +16,10 @@ public class counter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Timer += Time.deltaTime;
-		seconds = Mathf.Round (Timer);
-		TimerBox.text = "" + seconds;
+		if (Counting) {
+			Timer += Time.deltaTime;
+			seconds = (int)Mathf.Round (Timer);
+			TimerBox.text = "" + seconds;
+		}
 	}
 }

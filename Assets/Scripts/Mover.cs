@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Mover : MonoBehaviour {
 	
@@ -14,6 +15,9 @@ public class Mover : MonoBehaviour {
 	public bool usercontrol;
 	public float vanishingSpeed;
 	private bool here;
+	public AudioSource source;
+	public AudioClip eating;
+	public Text textbox;
 
 
 	// Use this for initialization
@@ -22,6 +26,7 @@ public class Mover : MonoBehaviour {
 		transform.gameObject.SetActive (true);
 		usercontrol = true;
 		here = true;
+		//source = GetComponent<AudioSource> ();
 
 	}
 	
@@ -51,13 +56,14 @@ public class Mover : MonoBehaviour {
 
 			if (here) {
 				GameObject.Find ("background").SetActive (false);
+				textbox.GetComponent<counter>().Counting = false;
 				transform.GetComponent<Rigidbody> ().useGravity = true;
 				here = false;
 			}
 
 			runOrTumble = false;
 
-			if (transform.position.y > -20.0f) {
+			if (transform.position.y > -25.0f) {
 				self.AddRelativeTorque (Vector3.right * 200 * Time.deltaTime);
 			} else {
 				SceneManager.LoadScene ("StartPage");
@@ -69,6 +75,7 @@ public class Mover : MonoBehaviour {
 	void OnTriggerEnter(Collider other)
 	{
 		if (other.gameObject.CompareTag ("glucose")) {
+			source.PlayOneShot (eating);
 			other.gameObject.SetActive (false);
 			Destroy (other.gameObject);
 			SubstanceManger.GetComponent<GatherableObjectMaker> ().numberOfObjects = SubstanceManger.GetComponent<GatherableObjectMaker> ().numberOfObjects - 1;

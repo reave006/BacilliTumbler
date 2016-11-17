@@ -6,7 +6,7 @@ public class GatherableObjectMaker : MonoBehaviour {
 	private float x;
 	private float y;
 	private float z;
-	private int maxNumberOfObjects=10;
+	public int maxNumberOfObjects;
 	public int numberOfObjects=0;
 	public float radius;
 	private float negradius;
